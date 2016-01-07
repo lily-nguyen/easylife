@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
 
-  "name": "Easy Life - Mining name of product plugin",
+  "name": "Easy Life - Mining name of product extension",
   "description": "This extension will extract name of products based on template",
   "version": "1.0",
 
@@ -10,6 +10,6 @@
    "default_popup": "easylife.html"
   },
   "permissions": [
-   "activeTab"
+   "tabs",  "<all_urls>"
    ]
 }
