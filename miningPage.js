@@ -4,6 +4,7 @@ function MingingNameProduct(root) {
     return "";
 }
 
+
 chrome.runtime.sendMessage({
     action: "miningProductName",
     source: MingingNameProduct(document)
