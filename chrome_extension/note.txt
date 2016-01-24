@@ -5,7 +5,22 @@ data
 
 techniques
 
+Cordova: open-source mobile development framework
+Client-Side Storage: http://www.html5rocks.com/en/tutorials/offline/storage/
+save to file: http://www.noupe.com/design/html5-filesystem-api-create-files-store-locally-using-javascript-webkit.html
+
+Tomcat setup: http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html#undefined
 ------------------------------
 http://stackoverflow.com/questions/11684454/getting-the-source-html-of-the-current-page-from-chrome-extension
 http://www.sitepoint.com/create-chrome-extension-10-minutes-flat/
 https://robots.thoughtbot.com/how-to-make-a-chrome-extension
+
+
+---------------------------------------------------------
+Tomcat setup
+1. clone Tomcat
+2. Unzip Tomcat
+3. Add Server into Eclipse: Window > Show Views > Servers > Apache > Tomcat v.8 > set Location
+4. Start Tomcat (in Eclipse)
+5. Copy $ApacheHome/webapps/ROOT into workspace/.metadata/.../wtpwebapps (replace)  
+6. Restart Tomcat
