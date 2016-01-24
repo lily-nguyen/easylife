@@ -1,2 +1,6 @@
-./eclipse-jee-mars-R-win32.zip
-./eclipse
+eclipse-jee-mars-R-win32.zip
+eclipse
+server/apache-tomcat-8.0.30
+server/ws/.metadata
+server/ws/RemoteSystemsTempFiles
+server/ws/Servers
