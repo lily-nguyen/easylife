@@ -1,18 +1,37 @@
 package product.manager.core;
 
-import net.sf.json.JSON;
+import java.io.StringReader;
+
+import javax.json.*;
 
 public class ProductSaverImpl implements ProductSaverInf {
 
 	@Override
-	public JSON saveProductList(JSON data) {
-		return null;
+	public JsonObject saveProductList(JsonObject data, boolean backupFile) {
+		if (backupFile) {
+			FileUtilities fileUtil = new FileUtilities();
+			String fileName = fileUtil.generateFileName(data);
+			fileUtil.save(fileName, data);
+		}
+		return ProcessStatus.PRODUCT_SAVE_SUCCESS;
 	}
 
+	
+	
+	private static JsonObject getData() {
+		JsonObject data = null;
+		String product = "{'url':'http://example.com/query?category=hoa','category':'hoa','products':[{'product':'hoa lan'},{'product':'hoa hue'}]}";
+		StringReader strReader = new StringReader(product);
+		JsonReader jsonReader = Json.createReader(strReader);
+		data = jsonReader.readObject();
+		return data;
+	}
+	
+	
 	public static void main(String[] args) {
-		JSON data = null;
+		JsonObject data = getData();
 		ProductSaverInf saver = new ProductSaverImpl();
-		saver.saveProductList(data);
+		saver.saveProductList(data, true);
 	}
 
 }

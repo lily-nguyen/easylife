@@ -1,9 +1,9 @@
 package product.manager.core;
 
-import net.sf.json.JSON;
+import javax.json.JsonObject;
 
 public interface ProductSaverInf {
 	
-	JSON saveProductList(JSON data);
+	JsonObject saveProductList(JsonObject data, boolean backupFile);
 
 }
