@@ -1,0 +1,19 @@
+format data sent to server:
+
+{
+'url':'',
+'category':'',
+'products':[{
+'product':''
+},
+]
+}
+
+format data 
+filename: category
+{
+'category':'',
+'products': [
+'product':''
+]
+}
