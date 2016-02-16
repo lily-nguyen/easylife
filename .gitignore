@@ -4,3 +4,5 @@ server/apache-tomcat-8.0.30
 server/ws/.metadata
 server/ws/RemoteSystemsTempFiles
 server/ws/Servers
+server/ws/example
+server/ws/.recommenders
