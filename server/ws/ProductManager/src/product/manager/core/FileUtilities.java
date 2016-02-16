@@ -5,6 +5,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -63,7 +65,8 @@ public class FileUtilities {
 	public String generateFileName (JsonObject data, String path) {
 		String fileName = ".txt";
 		String domain = getDomain(data.getString(ProductFields.URL));
-		fileName = domain + "_" + data.getString(ProductFields.CATEGORY) + fileName;
+		String currentDate = getDate();
+		fileName = domain + "_" + data.getString(ProductFields.CATEGORY) + "_" + currentDate + fileName;
 		return path + File.separator + fileName;
 	}
 	
@@ -72,17 +75,19 @@ public class FileUtilities {
 	 * (?http://)?([a-zA-Z_0-9\\-]+(?\\.\\w[a-zA-Z_0-9\\-]+))+(?/[#&\\n\\-=?\\+\\%/\\.\\w]+)?
 	 */
 	private String getDomain (String urlStr) {
-		String domain = "NoDomain";
-		System.out.println(urlStr);
+		String domain = ProductFields.NODOMAIN;
 		String regex = "(?:http://)?([a-zA-Z_0-9\\-]+(?:\\.\\w[a-zA-Z_0-9\\-]+))+(?:/[#&\\n\\-=?\\+\\%/\\.\\w]+)?";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(urlStr);
+		Matcher matcher = (Pattern.compile(regex)).matcher(urlStr);
 		if (matcher.find()) {
 			domain = matcher.group(1);
 		}
-		
-		System.out.println(domain);
 		return domain;
+	}
+	
+	
+	private String getDate () {
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yymmdd'T'hhmmss");
+		return simpleDateFormat.format(new Date());
 	}
 
 }

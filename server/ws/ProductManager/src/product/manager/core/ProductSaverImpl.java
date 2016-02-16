@@ -10,7 +10,7 @@ public class ProductSaverImpl implements ProductSaverInf {
 	public JsonObject saveProductList(JsonObject data, boolean backupFile) {
 		if (backupFile) {
 			FileUtilities fileUtil = new FileUtilities();
-			String fileName = fileUtil.generateFileName(data,"G:/m_pjs/easylife/server");
+			String fileName = fileUtil.generateFileName(data,"D:/m_stuff/easylife/server");
 			fileUtil.save(fileName, data);
 		}
 		return ProcessStatus.PRODUCT_SAVE_SUCCESS;
