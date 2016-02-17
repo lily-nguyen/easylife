@@ -21,8 +21,7 @@ public class ProductSaverImpl implements ProductSaverInf {
 	private static JsonObject getData() {
 		JsonObject data = null;
 		String product = "{\"url\":\"http://example.com/query?category=hoa\",\"category\":\"hoa\",\"products\":[{\"product\":\"hoa lan\"},{\"product\":\"hoa hue\"}]}";
-		StringReader strReader = new StringReader(product);
-		JsonReader jsonReader = Json.createReader(strReader);
+		JsonReader jsonReader = Json.createReader(new StringReader(product));
 		data = jsonReader.readObject();
 		jsonReader.close();
 		return data;

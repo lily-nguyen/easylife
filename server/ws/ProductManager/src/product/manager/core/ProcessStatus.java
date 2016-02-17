@@ -8,13 +8,17 @@ import javax.json.JsonReader;
 
 public class ProcessStatus {
 	
-	static StringReader SAVE_SUCCESS = new StringReader("{\"code\":200,\"message\":\"success\"}");
-	static StringReader SAVE_FAILED = new StringReader("{\"code\":201,\"message\":\"failed\"}");
+	static String SAVE_SUCCESS = "{\"code\":200,\"message\":\"success\"}";
+	static String SAVE_FAILED = "{\"code\":201,\"message\":\"failed\"}";
 	
 	public static JsonObject PRODUCT_SAVE_SUCCESS = getSuccess();
 	
 	public static JsonObject getSuccess () {
-		JsonReader jsonReader = Json.createReader(SAVE_SUCCESS);
+		JsonReader jsonReader = Json.createReader(new StringReader(SAVE_SUCCESS));
 		return jsonReader.readObject();
+	}
+	
+	public static void main (String[] agrs) {
+		System.out.println(getSuccess().toString());
 	}
 }
