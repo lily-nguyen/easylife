@@ -8,8 +8,8 @@ import javax.json.JsonReader;
 
 public class ProcessStatus {
 	
-	static String SAVE_SUCCESS = "{\"code\":200,\"message\":\"success\"}";
-	static String SAVE_FAILED = "{\"code\":201,\"message\":\"failed\"}";
+	static String SAVE_SUCCESS = "{\"message\":\"success\"}";
+	static String SAVE_FAILED = "{\"message\":\"failed\"}";
 	
 	public static JsonObject PRODUCT_SAVE_SUCCESS = getSuccess();
 	

@@ -17,8 +17,13 @@ public class ProductSaverImpl implements ProductSaverInf {
 	}
 
 	
+	@Override
+	public JsonObject saveProductList (String data, boolean backupFile) {
+		return saveProductList(Utils.convertToJson(data), backupFile);
+	}
 	
-	private static JsonObject getData() {
+	
+	public static JsonObject getData() {
 		JsonObject data = null;
 		String product = "{\"url\":\"http://example.com/query?category=hoa\",\"category\":\"hoa\",\"products\":[{\"product\":\"hoa lan\"},{\"product\":\"hoa hue\"}]}";
 		JsonReader jsonReader = Json.createReader(new StringReader(product));
