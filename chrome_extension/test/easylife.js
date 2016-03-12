@@ -1,1 +1,0 @@
-alert($(".product-card__name-wrap").length);

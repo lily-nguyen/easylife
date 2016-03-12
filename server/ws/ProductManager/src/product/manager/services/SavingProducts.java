@@ -1,5 +1,7 @@
 package product.manager.services;
 
+import java.net.URLDecoder;
+
 import javax.json.JsonObject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -25,8 +27,9 @@ public class SavingProducts {
 	
 	
 	@POST
-	@Consumes({MediaType.TEXT_PLAIN})
+	@Consumes({MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON})
 	public Response saveProduct (String data) {
+		
 		ProductSaverInf productSaver = new ProductSaverImpl();
 		productSaver.saveProductList(data, true);
 		JsonObject jO = ProcessStatus.getSuccess();

@@ -16,8 +16,31 @@ function MingingNameProduct() {
 		}
 			
 	}
-	alert(arrayProduct);
+	var productInformation = createProductInformation(arrayProduct);
+	saveProduct(productInformation);
     return "";
+}
+
+
+function createProductInformation (arrayProduct) {
+	var productJ = {};
+	productJ.url = 'http://www.lazada.vn/the-thao-da-ngoai/?ref=HP';
+	productJ.category = 'the thao da ngoai';
+	productJ.products = arrayProduct;
+	return productJ;
+}
+
+function saveProduct(productInformation) {
+	$.ajax({
+		'type': 'POST',
+		'url': 'http://localhost:8080/ProductManager/saveProducts',
+		'contentType': 'application/json',
+		'data': JSON.stringify(productInformation),
+		'dataType': 'xml/html/script/json',
+		'success': function() {
+			alert("success");
+		}
+	});
 }
 
 chrome.runtime.sendMessage({

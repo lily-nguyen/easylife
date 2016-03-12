@@ -4,6 +4,8 @@ import java.io.StringReader;
 
 import javax.json.*;
 
+import javassist.expr.Instanceof;
+
 public class ProductSaverImpl implements ProductSaverInf {
 
 	@Override
@@ -19,6 +21,8 @@ public class ProductSaverImpl implements ProductSaverInf {
 	
 	@Override
 	public JsonObject saveProductList (String data, boolean backupFile) {
+		System.out.println(data.toString() + " / ");
+		//return null;
 		return saveProductList(Utils.convertToJson(data), backupFile);
 	}
 	
